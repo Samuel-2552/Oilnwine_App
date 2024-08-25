@@ -113,18 +113,10 @@
 <script>
   function copyTextAndShare() {
     // Get the text area element
-    var textArea = "www.oilnwine.org\n" + document.getElementById("devotion");
+    var textArea = "www.oilnwine.org\n" + document.getElementById("devotion").innerText;
 
-    // // Select the text content
-    // textArea.select();
-    // textArea.setSelectionRange(0, 99999); // For mobile devices
-
-    // // Copy the text to the clipboard
-    // document.execCommand("copy");
-
-    // Prepare the WhatsApp sharing URL
-    var message = encodeURIComponent(textArea.value);
-    var whatsappUrl = `https://wa.me/?text=${message}`;
+ 
+    var whatsappUrl = `https://wa.me/?text=${textArea}`;
 
     // Open WhatsApp with the message
     window.open(whatsappUrl, "_blank");
