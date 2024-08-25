@@ -104,13 +104,32 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Share</button>
+          <button type="button" class="btn btn-primary" onclick="copyTextAndShare()">Share</button>
         </div>
       </div>
-    </div>
+    </div> 
   </div>
 </div>
 <script>
+  function copyTextAndShare() {
+    // Get the text area element
+    var textArea = "www.oilnwine.org\n" + document.getElementById("devotion");
+
+    // // Select the text content
+    // textArea.select();
+    // textArea.setSelectionRange(0, 99999); // For mobile devices
+
+    // // Copy the text to the clipboard
+    // document.execCommand("copy");
+
+    // Prepare the WhatsApp sharing URL
+    var message = encodeURIComponent(textArea.value);
+    var whatsappUrl = `https://wa.me/?text=${message}`;
+
+    // Open WhatsApp with the message
+    window.open(whatsappUrl, "_blank");
+}
+
     function formatBibleReading(reading) {
     return reading.replace(/\n/g, "<br>");
 }
