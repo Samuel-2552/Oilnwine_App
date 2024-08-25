@@ -113,10 +113,12 @@
 <script>
   function copyTextAndShare() {
     // Get the text area element
-    var textArea = "www.oilnwine.org\n" + document.getElementById("devotion").innerText;
+    var textArea = "www.oilnwine.org " + document.getElementById("devotion").innerText;
 
  
     var whatsappUrl = `https://wa.me/?text=${textArea}`;
+
+    console.log(whatsappUrl);
 
     // Open WhatsApp with the message
     window.open(whatsappUrl, "_blank");
