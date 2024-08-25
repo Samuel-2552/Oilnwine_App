@@ -110,9 +110,9 @@
   </div>
 </div>
 <script>
-    // Assuming you have a JSON object loaded in 'monthData' representing the content of each month file
-// Example: monthData = [ { "devotion_id": 0, ... }, { "devotion_id": 1, ... }, ...]
-
+    function formatBibleReading(reading) {
+    return reading.replace(/\n/g, "<br>");
+}
 const monthFiles = [
     "january.json", "february.json", "march.json", "april.json",
     "may.json", "june.json", "july.json", "august.json",
@@ -143,7 +143,7 @@ async function loadDevotion() {
             // console.log("Today's Command:", devotion.today_command);
             // console.log("Today's reading", devotion.bible_reading);
             document.getElementById("command").textContent=devotion.today_command;
-            document.getElementById("reading").textContent=devotion.bible_reading;
+            document.getElementById("reading").innerHTML=formatBibleReading(devotion.bible_reading);
             document.getElementById("devotion").textContent=devotion.devotion;
         } else {
             console.log("Devotion not found for the given date.");
