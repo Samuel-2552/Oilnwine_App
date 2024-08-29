@@ -282,21 +282,21 @@
 function copyTextAndShare() {
     // Get the text area content
     var textAreaContent = "www.oilnwine.org " + document.getElementById("devotion").innerText;
-    
-    // Check if the Web Share API is supported
-    if (navigator.share) {
-        navigator.share({
-            title: 'Check this out',
-            text: textAreaContent,
-            url: 'https://www.oilnwine.org'
-        }).then(() => {
-            console.log('Successful share');
-        }).catch((error) => {
-            console.error('Error sharing', error);
-        });
+
+    // Encode the message for URL
+    var encodedText = encodeURIComponent(textAreaContent);
+
+    // Create the WhatsApp intent URL
+    var whatsappUrl = `intent://send?text=${encodedText}#Intent;scheme=whatsapp;package=com.whatsapp;action=android.intent.action.SEND;end`;
+
+    // Check if the user is on a mobile device
+    if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        // Open WhatsApp directly using the intent URL on mobile devices
+        window.location.href = whatsappUrl;
     } else {
-        // Fallback for browsers that don't support the Web Share API
-        alert('Your browser does not support the Web Share API. Please copy the text manually.');
+        // Fallback for non-mobile devices
+        var fallbackUrl = `https://wa.me/?text=${encodedText}`;
+        window.open(fallbackUrl, "_blank");
     }
 }
 
