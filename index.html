@@ -286,12 +286,12 @@ function copyTextAndShare() {
     // Encode the message for URL
     var encodedText = encodeURIComponent(textAreaContent);
 
-    // Create the WhatsApp intent URL
-    var whatsappUrl = `intent://send?text=${encodedText}#Intent;scheme=whatsapp;package=com.whatsapp;action=android.intent.action.SEND;end`;
+    // Create the WhatsApp URL
+    var whatsappUrl = `whatsapp://send?text=${encodedText}`;
 
     // Check if the user is on a mobile device
     if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-        // Open WhatsApp directly using the intent URL on mobile devices
+        // Open WhatsApp directly using the URL scheme on mobile devices
         window.location.href = whatsappUrl;
     } else {
         // Fallback for non-mobile devices
