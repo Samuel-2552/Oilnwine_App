@@ -64,9 +64,41 @@
       .custom-search-button:hover {
         background-color: #f0f0f0;
       }
+
+      
+.clockdate-wrapper {
+   background: #f9be31;
+    padding:25px;
+    max-width:350px;
+    width:100%;
+    text-align:center;
+    border-radius:5px;
+    margin:0 auto;
+  
+}
+#clock{
+    font-family: sans-serif;
+    font-size:60px;
+    text-shadow:0px 0px 1px #fff;
+    color:#fff;
+}
+#clock span {
+    color:#888;
+    text-shadow:0px 0px 1px #333;
+    font-size:50px;
+    position:relative;
+    top:-5px;
+    left:10px;
+}
+#date {
+    letter-spacing:3px;
+    font-size:14px;
+    font-family:arial,sans-serif;
+    color:#fff;
+}
     </style>
   </head>
-  <body>
+  <body onload="startTime()">
     <nav class="navbar fixed-bottom bg-dark">
       <div class="container-fluid">
         <div class="container text-center">
@@ -78,7 +110,7 @@
                 aria-current="page"
                 href="#"
                 ><span class="nav-link active text-primary"
-                ><i class="fa-solid fa-house" style="font-size: 20px"></i
+                ><i class="fa-solid fa-house" style="font-size: 20px; padding-bottom:15px"></i
               ></span></a
               >
             </div>
@@ -88,7 +120,7 @@
                 class="nav-link"
                 href="https://www.youtube.com/playlist?list=PL5x78PohdbWyl4TfOwHNtBog_0R_0s_Gb"
                 ><span class="nav-link text-light">
-                  <i class="fa fa-hands-praying" style="font-size: 20px"></i
+                  <i class="fa fa-hands-praying" style="font-size: 20px; padding-bottom:15px"></i
                 ></span></a
               >
             </div>
@@ -98,7 +130,7 @@
                 class="nav-link"
                 href="https://www.youtube.com/playlist?list=PL5x78PohdbWxwcHPKYkfoL6V10OnYJwW-"
                 ><span class="nav-link text-light">
-                  <i class="fa fa-hands-holding" style="font-size: 20px"></i
+                  <i class="fa fa-hands-holding" style="font-size: 20px; padding-bottom:15px"></i
                 ></span></a
               >
             </div>
@@ -108,7 +140,7 @@
                 class="nav-link"
                 href="https://www.youtube.com/@gsfoilnwine/streams"
                 ><span class="nav-link text-light">
-                  <i class="fa-brands fa-youtube" style="font-size: 20px"></i
+                  <i class="fa-brands fa-youtube" style="font-size: 20px; padding-bottom:15px"></i
                 ></span></a
               >
             </div>
@@ -118,7 +150,7 @@
                 class="nav-link"
                 href="https://oilnwine.org/book-new/"
                 ><span class="nav-link text-light">
-                  <i class="fa fa-book-open" style="font-size: 20px"></i
+                  <i class="fa fa-book-open" style="font-size: 20px; padding-bottom:15px"></i
                 ></span></a
               >
             </div>
@@ -128,7 +160,7 @@
                 class="nav-link"
                 href="https://oilnwine.org/about-us/"
                 > <span class="nav-link text-light">
-                  <i class="fa fa-user" style="font-size: 20px"></i
+                  <i class="fa fa-user" style="font-size: 20px; padding-bottom:15px"></i
                 ></span></a
               >
             </div>
@@ -247,9 +279,17 @@
         </div>
       </div>
     </nav>
-    <br><br><br>
+    <br><br><br><br>
 
     <!-- style="top: -25px;" -->
+
+    
+    <div id="clockdate">
+      <div class="clockdate-wrapper">
+        <div id="clock"></div>
+        <div id="date"></div>
+      </div>
+    </div>
 
     <div class="container-fluid mt-3">
       <!-- <div class="card">
@@ -264,7 +304,7 @@
         </div>
       </div> -->
 
-      <div class="card bg-light">
+      <div class="card bg-light" style="min-height: 150px;">
         <h5 class="card-header" id="todays_reading"></h5>
         <div class="card-body">
           <span id="reading"></span>
@@ -282,7 +322,7 @@
         </div>
       </div>
       <br />
-      <div class="card bg-light">
+      <div class="card bg-light" style="min-height: 100px;">
         <h5 class="card-header" id="todays_devotion" style="padding: 15px;"></h5>
         <button style="position: absolute; top: 7.5px; right: 10px;"
                 type="button"
@@ -296,7 +336,7 @@
         </div>
       </div>
       <br />
-      <div class="card bg-light">
+      <div class="card bg-light" style="min-height: 50px;">
         <h5 class="card-header" id="todays_command"></h5>
         <div class="card-body">
           <p class="card-text" id="command"></p>
@@ -304,8 +344,8 @@
       </div>
       <br />
       <br>
-      <!-- <br>
-      <br> -->
+      <br>
+      <br>
 
       <!-- <center>
         <button
@@ -765,6 +805,38 @@
 
         loadDevotion();
       });
+
+      function startTime() {
+    var today = new Date();
+    var hr = today.getHours();
+    var min = today.getMinutes();
+    var sec = today.getSeconds();
+    ap = (hr < 12) ? "<span>AM</span>" : "<span>PM</span>";
+    hr = (hr == 0) ? 12 : hr;
+    hr = (hr > 12) ? hr - 12 : hr;
+    //Add a zero in front of numbers<10
+    hr = checkTime(hr);
+    min = checkTime(min);
+    sec = checkTime(sec);
+    document.getElementById("clock").innerHTML = hr + ":" + min + ":" + sec ;
+    
+    var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    var days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    var curWeekDay = days[today.getDay()];
+    var curDay = today.getDate();
+    var curMonth = months[today.getMonth()];
+    var curYear = today.getFullYear();
+    var date = curWeekDay+", "+curDay+" "+curMonth+" "+curYear;
+    document.getElementById("date").innerHTML = date;
+    
+    var time = setTimeout(function(){ startTime() }, 500);
+}
+function checkTime(i) {
+    if (i < 10) {
+        i = "0" + i;
+    }
+    return i;
+}
     </script>
   </body>
 </html>
