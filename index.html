@@ -283,9 +283,16 @@
       </div>
       <br />
       <div class="card bg-light">
-        <h5 class="card-header" id="todays_devotion"></h5>
+        <h5 class="card-header" id="todays_devotion" style="padding: 15px;"></h5>
+        <button style="position: absolute; top: 7.5px; right: 10px;"
+                type="button"
+                class="btn btn-primary"
+                onclick="copyTextAndShare()"
+              >
+              <i class="fa fa-share-nodes" aria-hidden="true"></i> Share
+              </button>
         <div class="card-body">
-          <p class="card-text" id="devotion"></p>
+          <p class="card-text" id="devotion" style="text-align: justify"></p>
         </div>
       </div>
       <br />
