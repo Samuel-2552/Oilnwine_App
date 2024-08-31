@@ -9,7 +9,10 @@
       rel="stylesheet"
     />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/f8244e4d62.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/f8244e4d62.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       .card {
         min-height: 150px; /* Minimum height for the card */
@@ -67,11 +70,81 @@
     </style>
   </head>
   <body>
+    <nav class="navbar fixed-bottom bg-dark">
+      <div class="container-fluid">
+        <div class="container text-center">
+          <div class="row">
+            <div class="col">
+              
+              <a
+                class="nav-link active text-primary"
+                aria-current="page"
+                href="#"
+                ><span class="nav-link active text-primary"
+                ><i class="fa-solid fa-house"></i
+              ></span></a
+              >
+            </div>
+            <div class="col text-light">
+              
+              <a
+                class="nav-link"
+                href="https://www.youtube.com/playlist?list=PL5x78PohdbWyl4TfOwHNtBog_0R_0s_Gb"
+                ><span class="nav-link text-light">
+                  <i class="fa fa-hands-praying"></i
+                ></span></a
+              >
+            </div>
+            <div class="col text-light">
+              
+              <a
+                class="nav-link"
+                href="https://www.youtube.com/playlist?list=PL5x78PohdbWxwcHPKYkfoL6V10OnYJwW-"
+                ><span class="nav-link text-light">
+                  <i class="fa fa-hands-holding"></i
+                ></span></a
+              >
+            </div>
+            <div class="col text-light">
+              
+              <a
+                class="nav-link"
+                href="https://www.youtube.com/@gsfoilnwine/streams"
+                ><span class="nav-link text-light">
+                  <i class="fa-brands fa-youtube"></i
+                ></span></a
+              >
+            </div>
+            <div class="col text-light">
+              
+              <a
+                class="nav-link"
+                href="https://oilnwine.org/book-new/"
+                ><span class="nav-link text-light">
+                  <i class="fa fa-book-open"></i
+                ></span></a
+              >
+            </div>
+            <div class="col text-light">
+             
+              <a
+                class="nav-link"
+                href="https://oilnwine.org/about-us/"
+                > <span class="nav-link text-light">
+                  <i class="fa fa-user"></i
+                ></span></a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
     <nav class="navbar bg-dark navbar-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#" style="padding-top: 5px"
           ><img
-            src="https://oilnwine.org/wp-content/uploads/2020/10/oilnwinelight-logo.png"
+            src="assets\img\oilnwinelight-logo.png"
             height="50px"
             alt="Oilnwine"
             class="rounded"
@@ -94,7 +167,7 @@
           aria-controls="offcanvasDarkNavbar"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <i class="fa fa-cog"></i>
         </button>
         <div
           class="offcanvas offcanvas-end text-bg-dark"
@@ -115,50 +188,62 @@
           </div>
           <div class="offcanvas-body">
             <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a class="nav-link active" aria-current="page" href="#">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://www.youtube.com/playlist?list=PL5x78PohdbWyl4TfOwHNtBog_0R_0s_Gb"
-                  >Morning Devotion&nbsp;&nbsp;<i class="fa fa-hands-praying"></i></a>
+                <a
+                  class="nav-link"
+                  href="https://www.youtube.com/playlist?list=PL5x78PohdbWyl4TfOwHNtBog_0R_0s_Gb"
+                  >Morning Devotion&nbsp;&nbsp;</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://www.youtube.com/playlist?list=PL5x78PohdbWxwcHPKYkfoL6V10OnYJwW-"
-                  >Worship&nbsp;&nbsp;<i class="fa fa-hands-holding"></i></a>
+                <a
+                  class="nav-link"
+                  href="https://www.youtube.com/playlist?list=PL5x78PohdbWxwcHPKYkfoL6V10OnYJwW-"
+                  >Worship&nbsp;&nbsp;<i class="fa fa-hands-holding"></i
+                ></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="https://www.youtube.com/@gsfoilnwine/streams"
-                  >Live Stream&nbsp;&nbsp;<i class="fa-brands fa-youtube"></i></a>
+                <a
+                  class="nav-link"
+                  href="https://www.youtube.com/@gsfoilnwine/streams"
+                  >Live Stream&nbsp;&nbsp;<i class="fa-brands fa-youtube"></i
+                ></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="https://oilnwine.org/book-new/"
-                  >Our Books&nbsp;&nbsp;<i class="fa fa-book-open"></i></a>
+                  >Our Books&nbsp;&nbsp;<i class="fa fa-book-open"></i
+                ></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="https://oilnwine.org/about-us/"
-                  >About Us&nbsp;&nbsp;<i class="fa fa-user"></i></a>
+                  >About Us&nbsp;&nbsp;<i class="fa fa-user"></i
+                ></a>
+              </li> -->
+              <li class="nav-item">
+                <span class="nav-link active" data-bs-toggle="modal"
+                data-bs-target="#searchModal"
+                  >Select Language&nbsp;&nbsp;<i class="fa fa-language"></i></span>
               </li>
               <li class="nav-item">
-                <button class="nav-link" onclick="loadDevotion('yesterday');"
-                  ><i
+                <button class="nav-link" onclick="loadDevotion('yesterday');">
+                  <i
                     class="fa fa-backward"
                     aria-hidden="true"
-                    style="position: absolute;
-                    bottom: 20px;
-                    left: 20px;"
-                  ></i
-                ></button>
+                    style="position: absolute; bottom: 20px; left: 20px"
+                  ></i>
+                </button>
               </li>
               <li class="nav-item">
-                <button class="nav-link" onclick="loadDevotion('tomorrow');"
-                  ><i
+                <button class="nav-link" onclick="loadDevotion('tomorrow');">
+                  <i
                     class="fa fa-forward"
                     aria-hidden="true"
-                    style="position: fixed;
-                    bottom: 20px;
-                    right: 20px;"
-                  ></i
-                ></button>
+                    style="position: fixed; bottom: 20px; right: 20px"
+                  ></i>
+                </button>
               </li>
             </ul>
           </div>
@@ -169,7 +254,7 @@
     <!-- style="top: -25px;" -->
 
     <div class="container-fluid mt-3">
-      <div class="card">
+      <!-- <div class="card">
         <img
           src="https://i0.wp.com/picjumbo.com/wp-content/uploads/beautiful-nature-scenery-free-photo.jpg?w=2210&quality=70"
           class="card-img-top"
@@ -179,9 +264,9 @@
           <h3 class="card-title" id="todays_command"></h3>
           <p class="card-text" id="command"></p>
         </div>
-      </div>
-      <br />
-      <div class="card border-warning bg-light">
+      </div> -->
+
+      <div class="card bg-light">
         <h5 class="card-header" id="todays_reading"></h5>
         <div class="card-body">
           <span id="reading"></span>
@@ -198,21 +283,37 @@
           </a>
         </div>
       </div>
-      <!-- Button trigger modal -->
       <br />
-      <center>
+      <div class="card bg-light">
+        <h5 class="card-header" id="todays_devotion"></h5>
+        <div class="card-body">
+          <p class="card-text" id="devotion"></p>
+        </div>
+      </div>
+      <br />
+      <div class="card bg-light">
+        <h5 class="card-header" id="todays_command"></h5>
+        <div class="card-body">
+          <p class="card-text" id="command"></p>
+        </div>
+      </div>
+      <br />
+
+      <!-- <center>
         <button
           type="button"
           class="btn btn-primary"
           data-bs-toggle="modal"
           data-bs-target="#exampleModal"
         >
-          <i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;<span id="todays_devotion1"></span>
+          <i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;<span
+            id="todays_devotion1"
+          ></span>
         </button>
-      </center>
+      </center> -->
 
       <!-- Modal -->
-      <div
+      <!-- <div
         class="modal fade"
         id="exampleModal"
         tabindex="-1"
@@ -255,7 +356,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
     <div
       class="modal fade"
@@ -338,7 +439,7 @@
         </div>
       </div>
     </div>
-    <div class="container" id="searchicon">
+    <!-- <div class="container" id="searchicon">
       <div class="fixed-button">
         <button
           type="button"
@@ -349,7 +450,7 @@
           <i class="fa fa-cog" style="font-size: 48px" aria-hidden="true"></i>
         </button>
       </div>
-    </div>
+    </div> -->
 
     <div
       class="modal fade"
@@ -543,25 +644,22 @@
         "december.json",
       ];
 
-      async function loadDevotion(dateType = 'current') {
-
-        
-
+      async function loadDevotion(dateType = "current") {
         // Get the current date
         const currentDate = new Date();
         // Adjust the date based on the dateType parameter
-    switch (dateType) {
-        case 'yesterday':
+        switch (dateType) {
+          case "yesterday":
             currentDate.setDate(currentDate.getDate() - 1);
             break;
-        case 'tomorrow':
+          case "tomorrow":
             currentDate.setDate(currentDate.getDate() + 1);
             break;
-        case 'current':
-        default:
+          case "current":
+          default:
             // Use the current date
             break;
-    }
+        }
         const month = currentDate.getMonth(); // 0 = January, 1 = February, ..., 11 = December
         const day = currentDate.getDate(); // 1 to 31
         const devotionId = day - 1; // Mapping date to devotion_id, 0-based index
@@ -571,10 +669,14 @@
         if (selectedLanguage && selectedLanguage !== "English") {
           // If a language other than English is selected, set that radio button
           document.getElementById(`${selectedLanguage}`).checked = true;
-          document.getElementById("todays_command").textContent = "இன்றைய  கட்டளை";
-          document.getElementById("todays_reading").textContent = "இன்றைக்கு படிக்க வேண்டிய வேதபகுதி";
-          document.getElementById("todays_devotion1").textContent ="அனுதின தியானம்";
-          document.getElementById("todays_devotion2").textContent ="அனுதின தியானம்";
+          document.getElementById("todays_command").textContent =
+            "இன்றைய  கட்டளை";
+          document.getElementById("todays_reading").textContent =
+            "இன்றைக்கு படிக்க வேண்டிய வேதபகுதி";
+          document.getElementById("todays_devotion").textContent =
+            "அனுதின தியானம்";
+          // document.getElementById("todays_devotion2").textContent =
+          //   "அனுதின தியானம்";
 
           // Execute specific JavaScript code for the selected language
           // For example, you can perform additional actions here based on the language
@@ -582,10 +684,12 @@
         } else {
           // If no selection or English is the default, ensure English is selected
           document.getElementById("English").checked = true;
-          document.getElementById("todays_command").textContent = "Today's Command";
-          document.getElementById("todays_reading").textContent = "Today's Reading";
-          document.getElementById("todays_devotion1").textContent ="Today's Devotion";
-          document.getElementById("todays_devotion2").textContent ="Today's Devotion";
+          document.getElementById("todays_command").textContent = "Command";
+          document.getElementById("todays_reading").textContent =
+            "Bible Reading";
+          document.getElementById("todays_devotion").textContent = "Devotion";
+          // document.getElementById("todays_devotion2").textContent =
+          //   "Devotion";
         }
 
         // Add event listeners to all radio buttons to update local storage
