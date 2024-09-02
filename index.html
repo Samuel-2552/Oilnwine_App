@@ -8,6 +8,7 @@
          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
          rel="stylesheet"
          />
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
       <script
          src="https://kit.fontawesome.com/f8244e4d62.js"
@@ -87,7 +88,7 @@
          }
          #date {
          letter-spacing:3px;
-         font-size:20px;
+         font-size:18px;
          font-family:arial,sans-serif;
          color:#000000;
          }
@@ -244,7 +245,7 @@
                            data-bs-target="#searchModal"
                            >Select Language&nbsp;&nbsp;<i class="fa fa-language"></i></span>
                      </li>
-                     <li class="nav-item">
+                     <!-- <li class="nav-item">
                         <button class="nav-link" onclick="loadDevotion('yesterday');">
                         <i
                            class="fa fa-backward"
@@ -252,7 +253,7 @@
                            style="position: absolute; bottom: 20px; left: 20px"
                            ></i>
                         </button>
-                     </li>
+                     </li> -->
                      <li class="nav-item">
                         <button class="nav-link" onclick="loadDevotion('tomorrow');">
                         <i
@@ -287,7 +288,7 @@
                      <a class="nav-link active" aria-current="true" href="#" id="today-tab">Today</a>
                   </li>
                   <li class="nav-item">
-                     <a class="nav-link" href="https://oilnwine.org/about-us/">About Us</a>
+                     <a class="nav-link" href="#" id="tomorrow-tab">About Us</a>
                   </li>
                </ul>
             </div>
@@ -309,7 +310,47 @@
               <p class="card-text" id="command"></p>
             </div>
             </div> -->
-         <div class="card bg-light" style="min-height: 150px;">
+            <div class="card" style="min-height: 150px;display: none; margin-bottom: 25px; " id="vision_card">
+               <h5 class="card-header" id="vision_reading">THIS IS OUR VISION</h5>
+               <div class="card-body"id="vision">
+                  
+               </div>
+            </div>
+            <div class="card" style="min-height: 150px;display: none; margin-bottom: 25px; " id="individual_vision_card">
+               <h6 class="card-header">OUR VISION</h6>
+               <div class="card-body">
+                 <h5 class="card-title">FOR THE INDIVIDUAL</h5>
+                 <p class="card-text" id="individual_vision"></p>
+               </div>
+             </div>
+             <div class="card" style="min-height: 150px;display: none; margin-bottom: 25px; " id="corporate_vision_card">
+               <h6 class="card-header">OUR VISION</h6>
+               <div class="card-body">
+                 <h5 class="card-title">FOR THE CORPORATE</h5>
+                 <p class="card-text" id="corporate_vision"></p>
+               </div>
+             </div>
+             <div class="card" style="min-height: 150px;display: none; margin-bottom: 25px; " id="dispensation_vision_card">
+               <h6 class="card-header">OUR VISION</h6>
+               <div class="card-body">
+                 <h5 class="card-title">FOR THIS DISPENSATION</h5>
+                 <p class="card-text" id="dispensation_vision"></p>
+               </div>
+             </div>
+             <div class="card" style="min-height: 150px;display: none; margin-bottom: 25px; " id="belief_card">
+               <h5 class="card-header" id="belief_reading">WHAT WE BELIEVE</h5>
+               <div class="card-body"id="belief">
+                  
+               </div>
+            </div>
+            <div class="card" style="min-height: 150px;display: none; margin-bottom: 25px; " id="covenant_card">
+               <h5 class="card-header" id="covenant_reading">THIS IS OUR COVENANT</h5>
+               <div class="card-body"id="covenant">
+                  
+               </div>
+            </div>
+         
+         <div class="card bg-light" style="min-height: 150px;" id="todays_reading_card">
             <h5 class="card-header" id="todays_reading"></h5>
             <div class="card-body">
                <span id="reading"></span>
@@ -327,7 +368,7 @@
             </div>
          </div>
          <br />
-         <div class="card bg-light" style="min-height: 100px;">
+         <div class="card bg-light" style="min-height: 100px;" id="todays_devotion_card">
             <h5 class="card-header" id="todays_devotion" style="padding: 15px;"></h5>
             <button style="position: absolute; top: 7.5px; right: 10px;"
                type="button"
@@ -341,7 +382,7 @@
             </div>
          </div>
          <br />
-         <div class="card bg-light" style="min-height: 50px;">
+         <div class="card bg-light" style="min-height: 50px;" id="todays_command_card">
             <h5 class="card-header" id="todays_command"></h5>
             <div class="card-body">
                <p class="card-text" id="command"></p>
@@ -862,6 +903,19 @@
            updateDate(date);
            setActiveTab(this);
            loadDevotion('yesterday');
+           const dateElement = document.getElementById("date");
+           dateElement.style.letterSpacing='3px';
+            dateElement.style.fontSize='18px';
+            dateElement.style.textAlign='center';
+            $("#todays_reading_card").show(200);
+               $("#todays_devotion_card").show(200);
+               $("#todays_command_card").show(200);
+               $("#vision_card").hide(200);
+               $("#individual_vision_card").hide(200);
+               $("#corporate_vision_card").hide(200);
+               $("#dispensation_vision_card").hide(200);
+               $("#belief_card").hide(200);
+               $("#covenant_card").hide(200);
          });
          
          document.getElementById("today-tab").addEventListener("click", function () {
@@ -869,15 +923,70 @@
            updateDate(date);
            setActiveTab(this);
            loadDevotion();
+           const dateElement = document.getElementById("date");
+           dateElement.style.letterSpacing='3px';
+            dateElement.style.fontSize='18px';
+            dateElement.style.textAlign='center';
+            $("#todays_reading_card").show(200);
+               $("#todays_devotion_card").show(200);
+               $("#todays_command_card").show(200);
+               $("#vision_card").hide(200);
+               $("#individual_vision_card").hide(200);
+               $("#corporate_vision_card").hide(200);
+               $("#dispensation_vision_card").hide(200);
+               $("#belief_card").hide(200);
+               $("#covenant_card").hide(200);
          });
          
-        //  document.getElementById("tomorrow-tab").addEventListener("click", function () {
-        //    var date = new Date();
-        //    date.setDate(date.getDate() + 1);
-        //    updateDate(date);
-        //    setActiveTab(this);
-        //    loadDevotion('tomorrow');
-        //  });
+         document.getElementById("tomorrow-tab").addEventListener("click", function () {
+    setActiveTab(this);
+
+    // Fetch the JSON data
+    fetch('/assets/data/about_us.json')
+        .then(response => response.json())
+        .then(data => {
+            // Assuming the JSON data is an array with one object
+            const aboutText = data[0].about;
+
+            // Update the HTML content of the element with the fetched data
+            const dateElement = document.getElementById("date");
+            dateElement.innerHTML = aboutText + "<br><br><a href='#our_vision' class='card-link'><span id='our_vision'>This is our Vision</span></a><br><ul><li><a href='#vision' class='card-link'>For the Individual</a></li><li><a href='#corporate_vision_card' class='card-link'>For the Corporate</a></li><li><a href='#dispensation_vision_card' class='card-link'>For this Dispensation</a></li></ul><a href='#belief_card' class='card-link'>What we Believe</a><br><a href='#covenant_card' class='card-link'>This is our Covenant.</a>";
+
+            // Apply CSS styles directly
+            dateElement.style.fontFamily = 'Arial, sans-serif';
+            dateElement.style.textAlign = 'justify';
+            dateElement.style.letterSpacing='0px';
+            dateElement.style.fontSize='16px';
+
+            document.getElementById("vision").innerText = data[0].vision;
+            document.getElementById("individual_vision").innerText = data[0].individual;
+            document.getElementById("corporate_vision").innerText = data[0].corporate;
+            document.getElementById("dispensation_vision").innerText = data[0].dispensation;
+            document.getElementById("belief").innerHTML = data[0].belief;
+            document.getElementById("covenant").innerHTML = data[0].covenant;
+            document.getElementById("vision").style.textAlign = 'justify';
+            document.getElementById("individual_vision").style.textAlign = 'justify';
+            document.getElementById("corporate_vision").style.textAlign = 'justify';
+            document.getElementById("dispensation_vision").style.textAlign = 'justify';
+            document.getElementById("belief").style.textAlign = 'justify';
+            document.getElementById("covenant").style.textAlign = 'justify';
+            // $("button").click(function(){
+               $("#todays_reading_card").hide(200);
+               $("#todays_devotion_card").hide(200);
+               $("#todays_command_card").hide(200);
+               $("#vision_card").show(200);
+               $("#individual_vision_card").show(200);
+               $("#corporate_vision_card").show(200);
+               $("#dispensation_vision_card").show(200);
+               $("#belief_card").show(200);
+               $("#covenant_card").show(200);
+            // });
+        })
+        .catch(error => {
+            console.error('Error fetching the JSON data:', error);
+        });
+});
+
          
          function setActiveTab(element) {
            var tabs = document.querySelectorAll('.nav-link');
