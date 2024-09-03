@@ -296,6 +296,7 @@
                <h5 class="card-title">
                   <div id="date"></div>
                </h5>
+               <div id="date_alternate"></div>
             </div>
          </div>
          <br>
@@ -907,6 +908,8 @@
            dateElement.style.letterSpacing='3px';
             dateElement.style.fontSize='18px';
             dateElement.style.textAlign='center';
+            $("#date").show(200);
+               $("#date_alternate").hide(500);
             $("#todays_reading_card").show(200);
                $("#todays_devotion_card").show(200);
                $("#todays_command_card").show(200);
@@ -927,6 +930,8 @@
            dateElement.style.letterSpacing='3px';
             dateElement.style.fontSize='18px';
             dateElement.style.textAlign='center';
+            $("#date").show(200);
+               $("#date_alternate").hide(500);
             $("#todays_reading_card").show(200);
                $("#todays_devotion_card").show(200);
                $("#todays_command_card").show(200);
@@ -949,15 +954,15 @@
             const aboutText = data[0].about;
 
             // Update the HTML content of the element with the fetched data
-            const dateElement = document.getElementById("date");
+            const dateElement = document.getElementById("date_alternate");
             dateElement.innerHTML = aboutText + "<br><br><a href='#our_vision' class='card-link'><span id='our_vision'>This is our Vision</span></a><br><ul><li><a href='#vision' class='card-link'>For the Individual</a></li><li><a href='#corporate_vision_card' class='card-link'>For the Corporate</a></li><li><a href='#dispensation_vision_card' class='card-link'>For this Dispensation</a></li></ul><a href='#belief_card' class='card-link'>What we Believe</a><br><a href='#covenant_card' class='card-link'>This is our Covenant.</a>";
 
             // Apply CSS styles directly
-            dateElement.style.fontFamily = 'Arial, sans-serif';
+            // dateElement.style.fontFamily = 'Arial, sans-serif';
             dateElement.style.textAlign = 'justify';
-            dateElement.style.letterSpacing='1px';
-            dateElement.style.lineHeight='25px';
-            dateElement.style.fontSize='16px';
+            // dateElement.style.letterSpacing='1px';
+            // dateElement.style.lineHeight='25px';
+            // dateElement.style.fontSize='16px';
 
             document.getElementById("vision").innerText = data[0].vision;
             document.getElementById("individual_vision").innerText = data[0].individual;
@@ -972,6 +977,8 @@
             document.getElementById("belief").style.textAlign = 'justify';
             document.getElementById("covenant").style.textAlign = 'justify';
             // $("button").click(function(){
+               $("#date").hide(200);
+               $("#date_alternate").show(500);
                $("#todays_reading_card").hide(200);
                $("#todays_devotion_card").hide(200);
                $("#todays_command_card").hide(200);
