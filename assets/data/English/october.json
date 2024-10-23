@@ -178,7 +178,8 @@
 	{
 		"devotion_id":22, 
 		"devotion_title":"Title 0",
-		"devotion": "Jeremiah 42:1-44:23 \n 2 Timothy 2:1-21 \n Psalm 92:1-93:5 \n Proverbs 26:3-5 ",
+		"devotion": "",
+		"bible_reading":"Jeremiah 42:1-44:23 \n 2 Timothy 2:1-21 \n Psalm 92:1-93:5 \n Proverbs 26:3-5 ",
 		"image_url": "Empty at the moment",
 		"today_command": "Keep yourselves in the love of God, looking for the mercy of our Lord Jesus Christ unto eternal life. Jude 1:21"
 	},
